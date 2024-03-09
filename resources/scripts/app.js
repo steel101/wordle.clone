@@ -239,11 +239,12 @@ const onKeyPressed = (pressedKey, game) => {
     const { currentLetterPosition, currentGuess, currentRow } = game
 
     if (reachMaxAttempts(currentRow)) {
+        Toastify({ ...toastifyDefaultConfig, text: message, backgroundColor }).showToast()
         return showNotification({ message: NOTIFICATION_REACH_MAX_ATTEMPTS, backgroundColor: TOASTIFY_ERROR_COLOR })
     }
 
     if (!isValidKeyPressed(pressedKey)) {
-        return showNotification({ message: NOTIFICATION_INVALID_PRESSED_KEY, backgroundColor: TOASTIFY_ERROR_COLOR })
+        return showNotification({ message:rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
     }
 
     if (isBackspaceKeyPressed(pressedKey) && !isCurrentGuessEmpty(currentGuess)) {
