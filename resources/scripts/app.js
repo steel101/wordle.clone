@@ -133,11 +133,6 @@ const reachMaxLetterPerRow = (currentLetterPosition) => {
 }
 
 const reachMaxAttempts = (currentRow) => {
-    if(currentRow == 6) {
-        const { rightGuess } = game
-        Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
-        continue
-    }    
     return currentRow > MAX_ATTEMPTS
 }
 
@@ -299,6 +294,8 @@ const onPlayAgainButtonPressed = (game) => {
         resetBoardGameLetter()
         resetKeyboardLetter()
         hidePlayAgainButton()
+        const { rightGuess } = game
+        return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
     })
 }
 
