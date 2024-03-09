@@ -133,8 +133,7 @@ const reachMaxLetterPerRow = (currentLetterPosition) => {
 }
 
 const reachMaxAttempts = (currentRow) => {
-    const { rightGuess } = game
-    Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
+    
     return currentRow > MAX_ATTEMPTS
 }
 
