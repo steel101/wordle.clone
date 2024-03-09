@@ -239,7 +239,7 @@ const onKeyPressed = (pressedKey, game) => {
 
     if (reachMaxAttempts(currentRow)) { 
         const { rightGues } = answer
-        return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
+        return showNotification({ message: answer, backgroundColor: TOASTIFY_ERROR_COLOR })
     }
 
     if (!isValidKeyPressed(pressedKey)) {
