@@ -286,11 +286,10 @@ const onLetterButtonPressed = (game) => {
     })
 }
 
-const onPlayAgainButtonPressed = (game) => {
-    const { database, currentLetterPosition, currentGuess, rightGuess } = game
+const onPlayAgainButtonPressed = (game,rightGuess) => {
     const buttonPlayAgain = document.querySelector('.btn-play-again')
-    return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
     buttonPlayAgain.addEventListener('click', () => {
+        return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
         resetInitialGame(game)
         resetBoardGameLetter()
         resetKeyboardLetter()
