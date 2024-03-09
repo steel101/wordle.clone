@@ -56,6 +56,8 @@ const showNotification = ({ backgroundColor, message }) => {
 }
 
 const showPlayAgainButton = () => {
+    const { rightGuess } = game
+    return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })   
     const buttonPlayAgain = document.querySelector('.play-again .btn-play-again')
     buttonPlayAgain.style.display = 'block'
 }
@@ -289,12 +291,10 @@ const onLetterButtonPressed = (game) => {
 const onPlayAgainButtonPressed = (game) => {
     const buttonPlayAgain = document.querySelector('.btn-play-again')
     buttonPlayAgain.addEventListener('click', () => {
-        const { rightGuess } = game
         resetInitialGame(game)
         resetBoardGameLetter()
         resetKeyboardLetter()
         hidePlayAgainButton()
-        return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
     })
 }
 
