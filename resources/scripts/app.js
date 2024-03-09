@@ -56,7 +56,7 @@ const showNotification = ({ backgroundColor, message }) => {
 }
 
 const showPlayAgainButton = () => {
-     const buttonPlayAgain = document.querySelector('.play-again .btn-play-again')
+    const buttonPlayAgain = document.querySelector('.play-again .btn-play-again')
     buttonPlayAgain.style.display = 'block'
 }
 
