@@ -241,7 +241,6 @@ const onKeyPressed = (pressedKey, game) => {
     const { currentLetterPosition, currentGuess, currentRow } = game
 
     if (reachMaxAttempts(currentRow)) {
-        Toastify({ ...toastifyDefaultConfig, text: message, backgroundColor }).showToast()
         return showNotification({ message: NOTIFICATION_REACH_MAX_ATTEMPTS, backgroundColor: TOASTIFY_ERROR_COLOR })
     }
 
