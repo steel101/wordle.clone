@@ -238,6 +238,7 @@ const onKeyPressed = (pressedKey, game) => {
     const { currentLetterPosition, currentGuess, currentRow, rightGues } = game
 
     if (reachMaxAttempts(currentRow)) { 
+        const { rightGues } = answer
         return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
     }
 
