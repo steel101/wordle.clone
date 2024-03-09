@@ -286,16 +286,16 @@ const onLetterButtonPressed = (game) => {
     })
 }
 
-const onPlayAgainButtonPressed = (game) => {
+const onPlayAgainButtonPressed = (game,rightGuess) => {
     const buttonPlayAgain = document.querySelector('.btn-play-again')
-
+    Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
     buttonPlayAgain.addEventListener('click', () => {
         resetInitialGame(game)
         resetBoardGameLetter()
         resetKeyboardLetter()
         hidePlayAgainButton()
-        const { rightGuess } = game
-        return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
+        #const { rightGuess } = game
+        #return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
     })
 }
 
