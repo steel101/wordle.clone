@@ -136,6 +136,7 @@ const reachMaxAttempts = (currentRow) => {
     if(currentRow == 6) {
         Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
         continue
+    }    
     return currentRow > MAX_ATTEMPTS
 }
 
