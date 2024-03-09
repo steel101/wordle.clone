@@ -56,9 +56,7 @@ const showNotification = ({ backgroundColor, message }) => {
 }
 
 const showPlayAgainButton = () => {
-    const { rightGuess } = game
-    Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
-    const buttonPlayAgain = document.querySelector('.play-again .btn-play-again')
+     const buttonPlayAgain = document.querySelector('.play-again .btn-play-again')
     buttonPlayAgain.style.display = 'block'
 }
 
@@ -289,6 +287,8 @@ const onLetterButtonPressed = (game) => {
 }
 
 const onPlayAgainButtonPressed = (game) => {
+    const { rightGuess } = game
+    Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
     const buttonPlayAgain = document.querySelector('.btn-play-again')
     buttonPlayAgain.addEventListener('click', () => {
         resetInitialGame(game)
