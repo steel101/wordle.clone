@@ -235,11 +235,10 @@ const checkGuess = (game) => {
 }
 
 const onKeyPressed = (pressedKey, game) => {
-    const { currentLetterPosition, currentGuess, currentRow, rightGues } = game
+    const { currentLetterPosition, currentGuess, currentRow, rightGuess } = game
 
-    if (reachMaxAttempts(currentRow)) { 
-        const { rightGues } = answer
-        return showNotification({ message: answer, backgroundColor: TOASTIFY_ERROR_COLOR })
+    if (reachMaxAttempts(currentRow,rightGuess)) { 
+        return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
     }
 
     if (!isValidKeyPressed(pressedKey)) {
