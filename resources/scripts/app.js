@@ -203,6 +203,7 @@ const nextGuess = (game) => {
     game.currentLetterPosition = 1
 
     if (reachMaxAttempts(game.currentRow)) {
+        const { rightGuess } = game
         Toastify({ ...toastifyDefaultConfig, text: rightGuess, backgroundColor }).showToast()
         
         showPlayAgainButton()
