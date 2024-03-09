@@ -133,7 +133,6 @@ const reachMaxLetterPerRow = (currentLetterPosition) => {
 }
 
 const reachMaxAttempts = (currentRow) => {
-    
     return currentRow > MAX_ATTEMPTS
 }
 
@@ -203,9 +202,6 @@ const nextGuess = (game) => {
     game.currentLetterPosition = 1
 
     if (reachMaxAttempts(game.currentRow)) {
-        const { rightGuess } = game
-        Toastify({ ...toastifyDefaultConfig, text: rightGuess, backgroundColor }).showToast()
-        
         showPlayAgainButton()
     }
 
@@ -246,7 +242,7 @@ const onKeyPressed = (pressedKey, game) => {
     }
 
     if (!isValidKeyPressed(pressedKey)) {
-        return showNotification({ message:rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })
+        return showNotification({ message: NOTIFICATION_INVALID_PRESSED_KEY, backgroundColor: TOASTIFY_ERROR_COLOR })
     }
 
     if (isBackspaceKeyPressed(pressedKey) && !isCurrentGuessEmpty(currentGuess)) {
@@ -292,6 +288,7 @@ const onLetterButtonPressed = (game) => {
 
 const onPlayAgainButtonPressed = (game) => {
     const buttonPlayAgain = document.querySelector('.btn-play-again')
+
     buttonPlayAgain.addEventListener('click', () => {
         resetInitialGame(game)
         resetBoardGameLetter()
