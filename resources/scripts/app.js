@@ -202,6 +202,7 @@ const nextGuess = (game) => {
     game.currentLetterPosition = 1
 
     if (reachMaxAttempts(game.currentRow)) {
+        Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
         showPlayAgainButton()
     }
 
@@ -287,8 +288,6 @@ const onLetterButtonPressed = (game) => {
 }
 
 const onPlayAgainButtonPressed = (game) => {
-    const { rightGuess } = game
-    Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
     const buttonPlayAgain = document.querySelector('.btn-play-again')
     buttonPlayAgain.addEventListener('click', () => {
         resetInitialGame(game)
