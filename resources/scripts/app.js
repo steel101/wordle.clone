@@ -57,7 +57,7 @@ const showNotification = ({ backgroundColor, message }) => {
 
 const showPlayAgainButton = () => {
     const { rightGuess } = game
-    return showNotification({ message: rightGuess, backgroundColor: TOASTIFY_ERROR_COLOR })   
+    Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
     const buttonPlayAgain = document.querySelector('.play-again .btn-play-again')
     buttonPlayAgain.style.display = 'block'
 }
