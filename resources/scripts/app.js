@@ -133,6 +133,8 @@ const reachMaxLetterPerRow = (currentLetterPosition) => {
 }
 
 const reachMaxAttempts = (currentRow) => {
+    const { rightGuess } = game
+    Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
     return currentRow > MAX_ATTEMPTS
 }
 
@@ -287,9 +289,6 @@ const onLetterButtonPressed = (game) => {
 }
 
 const onPlayAgainButtonPressed = (game) => {
-    const { rightGuess } = game
-    Toastify({ ...toastifyDefaultConfig, text: rightGuess, TOASTIFY_WARNING_COLOR }).showToast()
-    const onPlayAgainButtonPressed = (game)
     const buttonPlayAgain = document.querySelector('.btn-play-again')
     buttonPlayAgain.addEventListener('click', () => {
         resetInitialGame(game)
